@@ -1,147 +1,280 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Axel × Aily | Phone AU</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f8edf5;color:#453b4b;font-family:Arial,sans-serif;padding:22px 12px 40px}
-header{text-align:center;margin:8px auto 20px}
-header h1{font-family:Georgia,serif;font-size:28px;margin:0;color:#bd759c}
-header p{font-size:12px;letter-spacing:2px;color:#8d7b8d}
-.phone{max-width:360px;margin:auto;background:#fffafd;border:5px solid #fff;border-radius:35px;overflow:hidden;box-shadow:0 12px 40px #b88da52b}
-.top{height:32px;padding:10px 22px 0;display:flex;justify-content:space-between;font-size:11px}
-.screen{padding:20px 18px 24px;min-height:570px;background:linear-gradient(#fffafd,#f8f2ff)}
-.status{display:flex;justify-content:space-between;font-size:12px;margin-bottom:22px}
-h2{font-family:Georgia,serif;font-size:25px;margin:5px 0}
-.sub{font-size:12px;color:#98869a;margin:0 0 20px}
-.wallpaper{background:linear-gradient(135deg,#f7dce9,#dce5ff);border-radius:22px;padding:20px;margin-bottom:16px}
-.wallpaper p{font-size:12px;line-height:1.7}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px 10px;margin:20px 0}
-.app{border:0;background:none;color:inherit;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
-.ico{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;font-size:24px;background:linear-gradient(145deg,#f7d5e6,#dce4ff);box-shadow:0 3px 7px #9a7f9b19}
-.dock{display:flex;justify-content:space-around;background:#ffffffb8;padding:12px;border-radius:20px}
-.dock .ico{width:44px;height:44px}
-.card{background:white;border:1px solid #f0e3ef;border-radius:17px;padding:13px;margin:10px 0;font-size:13px;line-height:1.6}
+body{margin:0;background:#f3e8f2;color:#453b4b;font-family:Arial,sans-serif;padding:18px 10px 30px}
+header{text-align:center;margin:5px 0 16px}
+header h1{font:28px Georgia;color:#bd759c;margin:0}
+header p{font-size:10px;letter-spacing:2px;color:#98849b}
+.phone{position:relative;max-width:370px;height:min(790px,88dvh);min-height:600px;margin:auto;background:#fffafd;border:5px solid white;border-radius:38px;overflow:hidden;box-shadow:0 12px 40px #9e789c35}
+.top{height:32px;display:flex;justify-content:space-between;padding:10px 20px 0;font-size:11px;position:relative;z-index:2}
+.screen{height:calc(100% - 32px);overflow-y:auto;padding:16px 17px 22px;background:linear-gradient(#fffafd,#f7f1ff);transition:opacity .25s,transform .25s}
+h2{font:25px Georgia;margin:6px 0}
+.sub,.small{font-size:11px;color:#98869a}
+.sub{margin:0 0 18px}
+.wallpaper{background:linear-gradient(140deg,#f4cfe2,#cfdcff,#f9e5ef);border-radius:22px;padding:19px;margin-bottom:15px}
+.wallpaper p{font-size:12px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px 9px;margin:22px 0}
+.app{border:0;background:none;color:inherit;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.ico{width:51px;height:51px;border-radius:16px;display:grid;place-items:center;font-size:23px;background:linear-gradient(145deg,#f7d5e6,#dce4ff);box-shadow:0 3px 7px #9a7f9b19}
+.dock{display:flex;justify-content:space-around;background:#ffffffbd;padding:10px;border-radius:20px;margin-top:16px}
+.dock .ico{width:43px;height:43px}
+.card{background:white;border:1px solid #f0e3ef;border-radius:16px;padding:12px;margin:10px 0;font-size:13px;line-height:1.6}
 .person{display:flex;gap:10px;align-items:center}
-.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#f3c9de,#cbdcff);display:grid;place-items:center;font-size:20px}
-.small{font-size:11px;color:#9c8da0}
+.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#f3c9de,#cbdcff);display:grid;place-items:center;font-size:20px;flex-shrink:0}
 .bubble{padding:10px 12px;border-radius:15px;margin:10px 0;max-width:88%;font-size:13px;line-height:1.5}
 .left{background:#f0eaf7;border-bottom-left-radius:4px}
 .right{background:#f6ddea;margin-left:auto;border-bottom-right-radius:4px}
-button.back{border:0;border-radius:12px;padding:9px 13px;background:#f0e6f4;color:#6e5473;cursor:pointer}
-.photo{background:linear-gradient(140deg,#f8d8e7,#d6e2ff);border-radius:14px;min-height:95px;display:grid;place-items:center;font-size:30px}
+button.back,.action{border:0;border-radius:12px;padding:10px 13px;background:#f0e6f4;color:#6e5473;cursor:pointer}
+input,textarea{font:14px Arial;max-width:100%}
+.field{width:100%;padding:11px;border:1px solid #eadbea;border-radius:10px;margin-top:8px}
 .note{background:#fff5cf;border-radius:13px;padding:14px;margin:10px 0;font-size:13px;line-height:1.6}
-a{color:#b76d9a}
-footer{text-align:center;font-size:11px;color:#a18ca2;margin:20px 0 0}
+.photo{background:linear-gradient(140deg,#f8d8e7,#d6e2ff);border-radius:14px;min-height:95px;display:grid;place-items:center;font-size:30px}
+footer{text-align:center;font-size:11px;color:#a18ca2;margin:17px}
+#lock{position:absolute;inset:0;z-index:5;color:white;display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 20px 22px;background:linear-gradient(160deg,#cba9d5,#e8c7de 45%,#a9bce8);background-size:cover;transition:transform .45s,opacity .45s}
+#lock.unlocked{transform:translateY(-105%);opacity:0;pointer-events:none}
+.lockdate{margin-top:55px;font-size:14px;text-shadow:0 1px 5px #765d80}
+.lockclock{font-size:76px;font-weight:300;letter-spacing:-4px;margin:8px 0;text-shadow:0 2px 10px #765d8040}
+.lockquote{margin-top:auto;margin-bottom:25px;font:italic 17px Georgia;text-shadow:0 1px 5px #765d80}
+.lockbtn{background:#ffffff42;border:1px solid #ffffffa0;color:white;padding:13px 20px;border-radius:25px;font-size:13px;cursor:pointer}
+.pinbox{display:none;position:absolute;inset:0;z-index:7;background:linear-gradient(160deg,#d4b5df,#f2d9e8,#c4d1f1);color:#fff;text-align:center;padding:65px 28px 25px}
+.pinbox.show{display:block}
+.pinbox h2{font:24px Georgia}
+#dots{font-size:27px;letter-spacing:12px;margin:22px 0}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;max-width:250px;margin:20px auto}
+.key{width:61px;height:61px;border:1px solid #ffffff80;background:#ffffff36;border-radius:50%;font-size:22px;color:white;justify-self:center;cursor:pointer}
+#pinmsg{font-size:12px;min-height:18px}
+#camera{width:100%;border-radius:14px;background:#222;max-height:270px}
+@media(max-height:680px){.lockdate{margin-top:22px}.lockclock{font-size:62px}.key{width:52px;height:52px}.pinbox{padding-top:35px}}
 </style>
 </head>
 <body>
-<header>
-<h1>Axel × Aily ♡</h1>
-<p>AN INTERACTIVE PHONE AU</p>
-</header>
+<header><h1>Axel × Aily ♡</h1><p>AN INTERACTIVE PHONE AU</p></header>
+
 <div class="phone">
-<div class="top"><span>♡ 19:09</span><span>●●● ▰</span></div>
+<div class="top"><span id="statusTime">19:09</span><span>●●● ▰</span></div>
 <main class="screen" id="screen"></main>
+
+<section id="lock">
+<div class="lockdate" id="lockdate">THURSDAY, 22 OCTOBER</div>
+<div class="lockclock" id="lockclock">19:09</div>
+<div style="font-size:13px;text-shadow:0 1px 5px #765d80">♡ 100% · fictional phone</div>
+<div class="lockquote">some stories begin with a notification...</div>
+<button class="lockbtn" onclick="showPin()">↑ &nbsp; tekan untuk buka</button>
+</section>
+
+<section class="pinbox" id="pinbox">
+<div style="font-size:38px">♡</div>
+<h2>Enter Passcode</h2>
+<p style="font-size:12px">masukkan PIN untuk membuka ponsel</p>
+<div id="dots">○ ○ ○ ○</div>
+<div id="pinmsg"></div>
+<div class="keypad">
+<button class="key" onclick="digit('1')">1</button><button class="key" onclick="digit('2')">2</button><button class="key" onclick="digit('3')">3</button>
+<button class="key" onclick="digit('4')">4</button><button class="key" onclick="digit('5')">5</button><button class="key" onclick="digit('6')">6</button>
+<button class="key" onclick="digit('7')">7</button><button class="key" onclick="digit('8')">8</button><button class="key" onclick="digit('9')">9</button>
+<button class="key" onclick="clearPin()" style="font-size:12px">CLEAR</button><button class="key" onclick="digit('0')">0</button><button class="key" onclick="erasePin()">⌫</button>
 </div>
-<footer>made with love ♡ fictional AU universe</footer>
+<button class="lockbtn" onclick="hidePin()">Cancel</button>
+</section>
+</div>
+<footer>made with ♡ for the Axel × Aily fictional universe</footer>
+
 <script>
 const screen=document.getElementById('screen');
+let pin='';
+const correctPin='1909';
+
+function updateClock(){
+ const d=new Date();
+ const time=d.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',hour12:false});
+ document.getElementById('lockclock').textContent=time;
+ document.getElementById('statusTime').textContent=time;
+ document.getElementById('lockdate').textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'}).toUpperCase();
+}
+updateClock();
+setInterval(updateClock,10000);
+
+function showPin(){pin='';updateDots();document.getElementById('pinmsg').textContent='';document.getElementById('pinbox').classList.add('show')}
+function hidePin(){document.getElementById('pinbox').classList.remove('show')}
+function updateDots(){document.getElementById('dots').textContent=[0,1,2,3].map(i=>i<pin.length?'●':'○').join(' ')}
+function digit(n){
+ if(pin.length>=4)return;
+ pin+=n;updateDots();
+ if(pin.length===4){
+  if(pin===correctPin){
+   document.getElementById('pinmsg').textContent='Unlocked ♡';
+   setTimeout(()=>{hidePin();document.getElementById('lock').classList.add('unlocked');home()},350);
+  }else{
+   document.getElementById('pinmsg').textContent='PIN salah, coba lagi yaa';
+   setTimeout(()=>{pin='';updateDots()},650);
+  }
+ }
+}
+function clearPin(){pin='';updateDots();document.getElementById('pinmsg').textContent=''}
+function erasePin(){pin=pin.slice(0,-1);updateDots()}
+
 function home(){
-screen.innerHTML=`
-<div class="status"><span>Thursday, 19:09</span><span>♡ 100%</span></div>
-<div class="wallpaper"><p>✧･ﾟ: *✧･ﾟ:*　♡　*:･ﾟ✧*:･ﾟ✧</p>
-<h2>Hey, Aily.</h2><p>Someone might be waiting for your reply...</p>
-<p style="text-align:right">— Axel ♡</p></div>
-<div class="grid">
-<button class="app" onclick="messages()"><span class="ico">💬</span>Messages</button>
-<button class="app" onclick="instagram()"><span class="ico">📸</span>Instagram</button>
-<button class="app" onclick="photos()"><span class="ico">🖼️</span>Photos</button>
-<button class="app" onclick="notes()"><span class="ico">📝</span>Notes</button>
-<button class="app" onclick="contacts()"><span class="ico">👤</span>Contacts</button>
-<button class="app" onclick="music()"><span class="ico">🎧</span>Music</button>
-<button class="app" onclick="calendar()"><span class="ico">📅</span>Calendar</button>
-<button class="app" onclick="safari()"><span class="ico">🌐</span>Safari</button>
-<button class="app" onclick="about()"><span class="ico">💌</span>About AU</button>
-</div>
-<div class="dock">
-<button class="app" onclick="messages()"><span class="ico">💬</span></button>
-<button class="app" onclick="photos()"><span class="ico">🖼️</span></button>
-<button class="app" onclick="music()"><span class="ico">🎵</span></button>
-<button class="app" onclick="safari()"><span class="ico">🌐</span></button>
-</div>`;
+ screen.innerHTML=`
+ <div class="wallpaper">
+ <p>✧･ﾟ: *✧･ﾟ:*　♡　*:･ﾟ✧*:･ﾟ✧</p>
+ <div class="small">THURSDAY · YOUR PHONE</div>
+ <h2>Hey, Aily.</h2>
+ <p>New day, same annoying basketball boy.</p>
+ <p style="text-align:right">— A. Zardian</p>
+ </div>
+ <div class="grid">
+ <button class="app" onclick="messages()"><span class="ico">💬</span>Messages</button>
+ <button class="app" onclick="instagram()"><span class="ico">📸</span>Instagram</button>
+ <button class="app" onclick="photos()"><span class="ico">🖼️</span>Photos</button>
+ <button class="app" onclick="notes()"><span class="ico">📝</span>Notes</button>
+ <button class="app" onclick="contacts()"><span class="ico">👤</span>Contacts</button>
+ <button class="app" onclick="music()"><span class="ico">🎧</span>Music</button>
+ <button class="app" onclick="calendar()"><span class="ico">📅</span>Calendar</button>
+ <button class="app" onclick="safari()"><span class="ico">🌐</span>Safari</button>
+ <button class="app" onclick="about()"><span class="ico">💌</span>About AU</button>
+ <button class="app" onclick="phoneApp()"><span class="ico">📞</span>Phone</button>
+ <button class="app" onclick="cameraApp()"><span class="ico">📷</span>Camera</button>
+ <button class="app" onclick="xApp()"><span class="ico">𝕏</span>X</button>
+ <button class="app" onclick="lineApp()"><span class="ico">🟩</span>LINE</button>
+ <button class="app" onclick="mailApp()"><span class="ico">✉️</span>Mail</button>
+ <button class="app" onclick="alarmApp()"><span class="ico">⏰</span>Alarm</button>
+ </div>
+ <div class="dock">
+ <button class="app" onclick="phoneApp()"><span class="ico">📞</span></button>
+ <button class="app" onclick="messages()"><span class="ico">💬</span></button>
+ <button class="app" onclick="photos()"><span class="ico">🖼️</span></button>
+ <button class="app" onclick="music()"><span class="ico">🎵</span></button>
+ </div>`;
 }
 function page(title,content){
-screen.innerHTML=`<button class="back" onclick="home()">← Home</button><h2 style="margin-top:22px">${title}</h2><p class="sub">AXEL × AILY　♡</p>${content}`;
+ screen.innerHTML=`<button class="back" onclick="home()">← Home</button><h2 style="margin-top:22px">${title}</h2><p class="sub">AXEL × AILY　♡</p>${content}`;
 }
 function messages(){
-page('Messages 💬',`
-<div class="card person"><div class="avatar">🖤</div><div><b>Axel</b><div class="small">online now</div></div></div>
-<div class="bubble left">udah sampai rumah belum?</div>
-<div class="bubble right">udahh, kenapa?</div>
-<div class="bubble left">gapapa. just making sure you're safe.</div>
-<div class="bubble right">cie perhatian banget 🙄</div>
-<div class="bubble left">ke kamu doang kali.</div>
-<div class="bubble right">AXEL?? 😭</div>
-<div class="card"><label for="reply">Your reply:</label><br><input id="reply" placeholder="type something..." style="width:100%;padding:11px;border:1px solid #eadbea;border-radius:10px;margin-top:8px"><button class="back" style="margin-top:8px" onclick="sendReply()">Send ♡</button><div id="sent" class="small"></div></div>`);
+ page('Messages 💬',`
+ <div class="card person"><div class="avatar">🏀</div><div><b>Axel Zardian</b><div class="small">last seen recently</div></div></div>
+ <div class="bubble left">Besok latihan mulai jam berapa?</div>
+ <div class="bubble right">Kenapa nanya ke aku? Tanya pelatih aja 😭</div>
+ <div class="bubble left">Lo yang pegang jadwalnya, Aily.</div>
+ <div class="bubble right">Oh iya. 15.30. Jangan telat, kapten basket.</div>
+ <div class="bubble left">Bawel.</div>
+ <div class="bubble right">Sama-sama, pendek akal.</div>
+ <div class="card"><label for="reply">Balas pesan:</label><input class="field" id="reply" placeholder="ketik pesan..."><button class="back" style="margin-top:8px" onclick="sendReply()">Send ↗</button><div id="sent" class="small"></div></div>`);
 }
-function sendReply(){
-let v=document.getElementById('reply').value;
-if(v.trim())document.getElementById('sent').textContent='You: '+v+' ♡';
-}
+function sendReply(){let el=document.getElementById('reply');if(el&&el.value.trim())document.getElementById('sent').textContent='You: '+el.value+' ✓'}
 function instagram(){
-page('Instagram 📸',`
-<div class="card"><b>aily.v</b><div class="photo">🎀 🌷 ☁️</div><p>little moments, little memories ♡</p><button class="back" onclick="like(this)">♡ Like</button> <span class="small">12 comments</span></div>
-<div class="card"><b>axel.z</b><div class="photo">🏀 🌆 🖤</div><p>practice done.</p><button class="back" onclick="like(this)">♡ Like</button></div>`);
+ page('Instagram 📸',`
+ <div class="card"><b>aily.v</b><div class="photo">🎀 🌷 ☁️</div><p>practice, school, repeat.</p><button class="back" onclick="like(this)">♡ Like</button> <span class="small">12 comments</span></div>
+ <div class="card"><b>axel.z</b><div class="photo">🏀 🌆 🖤</div><p>practice done. stop asking.</p><button class="back" onclick="like(this)">♡ Like</button></div>
+ <div class="card"><b>aily.v</b><div class="photo">🥁 🎀</div><p>mayoret duties! ♡</p><button class="back" onclick="like(this)">♡ Like</button></div>
+ <div class="card"><b>axel.z</b><div class="photo">🎸 🌙</div><p>no caption.</p><button class="back" onclick="like(this)">♡ Like</button></div>`);
 }
 function like(btn){btn.textContent=btn.textContent.includes('Liked')?'♡ Like':'♥ Liked!'}
 function photos(){
-page('Photos 🖼️',`
-<div class="grid">
-<div class="photo">🌷</div><div class="photo">☁️</div><div class="photo">🎀</div>
-<div class="photo">🏀</div><div class="photo">🌇</div><div class="photo">♡</div>
-</div><div class="card">Recently saved · 6 items<br><span class="small">the little things we don't post</span></div>`);
+ page('Photos 🖼️',`
+ <div class="grid">
+ <div class="photo">🌷</div><div class="photo">☁️</div><div class="photo">🎀</div>
+ <div class="photo">🏀</div><div class="photo">🌇</div><div class="photo">🥁</div>
+ </div><div class="card">Recently saved · 6 items<br><span class="small">the little things we don't post</span></div>
+ <p class="small">Wallpaper Tian Xiwei bisa kita tambahkan setelah fotonya diunggah ke repo.</p>`);
 }
 function notes(){
-page('Notes 📝',`
-<div class="note"><b>things i won't say out loud</b><br>1. I look for him in every crowd.<br>2. His texts make my day better.<br>3. Maybe I like him more than I should. ♡</div>
-<div class="note"><b>reminder</b><br>Don't forget your homework, Aily!</div>`);
+ page('Notes 📝',`
+ <div class="note"><b>things that annoy me</b><br>1. That basketball boy's attitude.<br>2. He never says thank you.<br>3. Why does he keep borrowing my notes?!</div>
+ <div class="note"><b>reminder</b><br>Don't forget your homework, Aily!</div>`);
 }
 function contacts(){
-page('Contacts 👤',`
-<div class="card person"><div class="avatar">🖤</div><div><b>Axelio Zardian</b><div class="small">Axel · Favorite headache</div><div>📞 08xx-xxxx-AXEL</div></div></div>
-<div class="card person"><div class="avatar">🎀</div><div><b>Vionata Aily</b><div class="small">Aily · Main character</div><div>📞 This is her phone ♡</div></div></div>
-<p class="small">Fictional contact details for this AU.</p>`);
+ page('Contacts 👤',`
+ <div class="card person"><div class="avatar">🏀</div><div><b>Axelio Zardian</b><div class="small">Axel · basketball captain</div><div>📞 08xx-xxxx-AXEL</div></div></div>
+ <div class="card person"><div class="avatar">🎀</div><div><b>Vionata Aily</b><div class="small">Aily · majorette</div><div>📱 this phone</div></div></div>
+ <div class="card person"><div class="avatar">🥁</div><div><b>Mayoret Group</b><div class="small">School group</div></div></div>
+ <p class="small">All contacts are fictional.</p>`);
 }
 function music(){
-page('Now Playing 🎧',`
-<div class="wallpaper" style="text-align:center"><div style="font-size:65px">🎧</div><h2 id="song">love playlist</h2><p id="artist">for late-night thoughts</p></div>
-<div class="card"><button class="back" onclick="pickSong('soft spot','a song for someone special')">♡ Soft spot</button></div>
-<div class="card"><button class="back" onclick="pickSong('almost us','for the almost-confessions')">♡ Almost us</button></div>
-<div class="card"><button class="back" onclick="pickSong('after 11 pm','when I miss you')">♡ After 11 PM</button></div>
-<p class="small">Choose a mood to update the playlist. This is a visual mockup; no audio plays.</p>`);
+ page('Music 🎧',`
+ <div class="wallpaper" style="text-align:center"><div style="font-size:60px">🎧</div><h2 id="song">late night playlist</h2><p id="artist">for the ride home</p></div>
+ <div class="card"><button class="back" onclick="pickSong('soft spot','a song for complicated feelings')">♡ Soft Spot</button></div>
+ <div class="card"><button class="back" onclick="pickSong('almost us','for things left unsaid')">♡ Almost Us</button></div>
+ <div class="card"><button class="back" onclick="pickSong('after 11 pm','when sleep refuses to come')">♡ After 11 PM</button></div>
+ <p class="small">Playlist mockup: belum memutar audio asli.</p>`);
 }
-function pickSong(s,a){document.getElementById('song').textContent=s;document.getElementById('artist').textContent=a;}
+function pickSong(s,a){document.getElementById('song').textContent=s;document.getElementById('artist').textContent=a}
 function calendar(){
-page('Calendar 📅',`
-<div class="card"><div class="small">THURSDAY</div><h2>22 October</h2><p>♡ 07:00 — School</p><p>♡ 15:30 — Basketball practice</p><p>♡ 19:00 — Axel texts Aily</p></div>
-<div class="card">Tomorrow<br><b>Maybe we'll meet again.</b></div>`);
+ page('Calendar 📅',`
+ <div class="card"><div class="small">THURSDAY</div><h2>22 October</h2><p>♡ 07:00 — School</p><p>♡ 15:30 — Basketball practice</p><p>♡ 16:00 — Mayoret practice</p><p>♡ 19:00 — Homework time</p></div>
+ <div class="card">Tomorrow<br><b>Math quiz. Don't forget!</b></div>`);
 }
 function safari(){
-page('Safari 🌐',`
-<div class="card"><div class="small">SEARCH THE WEB</div><input id="search" placeholder="search something..." style="width:100%;padding:12px;border:1px solid #eadbea;border-radius:10px"><button class="back" style="margin-top:9px" onclick="doSearch()">Search</button><p id="result"></p></div>
-<div class="card"><b>Recently visited</b><p>♡ school portal</p><p>♡ basketball highlights</p><p>♡ how to tell if someone likes you</p></div>`);
+ page('Browser 🌐',`
+ <div class="card"><div class="small">SEARCH THE WEB · MOCKUP</div><input id="search" class="field" placeholder="search something..."><button class="back" style="margin-top:9px" onclick="doSearch()">Search</button><p id="result"></p></div>
+ <div class="card"><b>Recently visited</b><p>♡ school portal</p><p>♡ basketball highlights</p><p>♡ mayoret practice tips</p></div>`);
 }
-function doSearch(){let q=document.getElementById('search').value;document.getElementById('result').textContent=q?'Searching for: '+q+' (AU preview)':'Type something first!';}
+function doSearch(){let q=document.getElementById('search').value;document.getElementById('result').textContent=q?'Preview search: '+q+' (belum terhubung ke web sungguhan)':'Ketik sesuatu dulu!'}
 function about(){
-page('About this AU 💌',`
-<div class="wallpaper"><h2>Axel & Aily</h2><p>He is loud with everyone, but somehow quiet around her.</p><p>She has a beautiful smile, but rarely lets him see it.</p></div>
-<div class="card"><b>“berisik, tapi gue suka.”</b><p class="small">— Axel</p></div>
-<div class="card"><b>“ia memiliki senyuman yang begitu indah, namun mengapa ia tak pernah menunjukkannya di hadapan orang-orang?”</b><p class="small">— Vionata Aily</p></div>`);
+ page('About this AU 💌',`
+ <div class="wallpaper"><h2>Axel & Aily</h2><p>He is the basketball boy who acts like he owns the court.</p><p>She is the majorette who refuses to be impressed.</p><p>They argue over everything. Somehow, they keep ending up in the same place.</p></div>
+ <div class="card"><b>“berisik, tapi gue suka.”</b><p class="small">— Axel · an AU quote</p></div>
+ <div class="card"><b>“ia memiliki senyuman yang begitu indah, namun mengapa ia tak pernah menunjukkannya di hadapan orang-orang?”</b><p class="small">— Vionata Aily</p></div>`);
 }
+function phoneApp(){
+ page('Phone 📞',`
+ <div class="wallpaper" style="text-align:center"><div style="font-size:48px">📞</div><h2>Recent Calls</h2></div>
+ <div class="card person"><div class="avatar">🏀</div><div><b>Axel Zardian</b><div class="small">Outgoing call · Yesterday</div></div><button class="back" onclick="callAxel()">Call</button></div>
+ <div id="callStatus" class="card">Call simulation only. Tidak menelepon nomor sungguhan.</div>`);
+}
+function callAxel(){
+ document.getElementById('callStatus').innerHTML='<b>Calling Axel...</b><p>📞 Ringing...</p><button class="back" onclick="document.getElementById(\'callStatus\').textContent=\'Call ended.\'">End call</button>';
+}
+function cameraApp(){
+ page('Camera 📷',`
+ <div class="card"><p class="small">Kamera membutuhkan izin browser dan perangkat yang mendukung.</p><video id="camera" autoplay playsinline></video>
+ <button class="back" style="margin-top:10px" onclick="startCamera()">Open Camera</button>
+ <button class="back" style="margin-top:10px" onclick="stopCamera()">Close Camera</button>
+ <div id="cameraMsg" class="small"></div></div>`);
+}
+let cameraStream=null;
+async function startCamera(){
+ try{
+  cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});
+  document.getElementById('camera').srcObject=cameraStream;
+  document.getElementById('cameraMsg').textContent='Camera on ♡';
+ }catch(e){document.getElementById('cameraMsg').textContent='Kamera tidak tersedia atau izin belum diberikan.'}
+}
+function stopCamera(){
+ if(cameraStream)cameraStream.getTracks().forEach(t=>t.stop());
+ cameraStream=null;
+ const v=document.getElementById('camera');if(v)v.srcObject=null;
+ const m=document.getElementById('cameraMsg');if(m)m.textContent='Camera off.';
+}
+function xApp(){
+ page('X 𝕏',`
+ <div class="card"><b>aily.v</b><p>why is our basketball captain so dramatic</p><span class="small">♡ 18 · ↻ 3</span></div>
+ <div class="card"><b>axel.z</b><p>some people talk too much.</p><span class="small">♡ 5 · ↻ 1</span></div>
+ <div class="card"><b>aily.v</b><p>this is obviously about me. embarrassing.</p><span class="small">♡ 23 · ↻ 6</span></div>`);
+}
+function lineApp(){
+ page('LINE 🟩',`
+ <div class="card person"><div class="avatar">🏀</div><div><b>Axel</b><div class="small">You are so annoying.</div></div></div>
+ <div class="bubble left">Kirim catatan matematika yang tadi.</div><div class="bubble right">Bilang tolong dulu.</div><div class="bubble left">Mimpi.</div><div class="bubble right">Yaudah nilai remedial sendiri 😌</div>
+ <div class="card"><input class="field" id="lineReply" placeholder="Message..."><button class="back" style="margin-top:8px" onclick="lineSend()">Send</button><div id="lineSent" class="small"></div></div>`);
+}
+function lineSend(){let e=document.getElementById('lineReply');if(e&&e.value.trim())document.getElementById('lineSent').textContent='You: '+e.value}
+function mailApp(){
+ page('Gmail ✉️',`
+ <div class="card"><div class="small">INBOX · SCHOOL</div><b>Subject: Basketball Team Schedule</b><p>From: School Office</p><p>Practice begins at 15:30. Please arrive on time.</p></div>
+ <div class="card"><div class="small">DRAFT</div><b>To: Axel Zardian</b><p>Subject: Your missing assignment</p><p>Do your homework. I'm not reminding you again.</p></div>`);
+}
+function alarmApp(){
+ page('Alarm ⏰',`
+ <div class="card" style="text-align:center"><div style="font-size:48px">⏰</div><h2>06:00 AM</h2><p>School alarm</p><button class="back" onclick="alarmToggle(this)">Turn alarm off</button><p id="alarmStatus" class="small">Alarm simulation</p></div>
+ <div class="card"><b>15:00</b><p>Mayoret practice reminder</p></div>`);
+}
+function alarmToggle(btn){btn.textContent=btn.textContent.includes('off')?'Turn alarm on':'Turn alarm off';document.getElementById('alarmStatus').textContent=btn.textContent.includes('on')?'Alarm enabled (visual only)':'Alarm disabled (visual only)'}
 home();
 </script>
 </body>
