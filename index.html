@@ -1,1 +1,149 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axel × Aily | Phone AU</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f8edf5;color:#453b4b;font-family:Arial,sans-serif;padding:22px 12px 40px}
+header{text-align:center;margin:8px auto 20px}
+header h1{font-family:Georgia,serif;font-size:28px;margin:0;color:#bd759c}
+header p{font-size:12px;letter-spacing:2px;color:#8d7b8d}
+.phone{max-width:360px;margin:auto;background:#fffafd;border:5px solid #fff;border-radius:35px;overflow:hidden;box-shadow:0 12px 40px #b88da52b}
+.top{height:32px;padding:10px 22px 0;display:flex;justify-content:space-between;font-size:11px}
+.screen{padding:20px 18px 24px;min-height:570px;background:linear-gradient(#fffafd,#f8f2ff)}
+.status{display:flex;justify-content:space-between;font-size:12px;margin-bottom:22px}
+h2{font-family:Georgia,serif;font-size:25px;margin:5px 0}
+.sub{font-size:12px;color:#98869a;margin:0 0 20px}
+.wallpaper{background:linear-gradient(135deg,#f7dce9,#dce5ff);border-radius:22px;padding:20px;margin-bottom:16px}
+.wallpaper p{font-size:12px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px 10px;margin:20px 0}
+.app{border:0;background:none;color:inherit;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
+.ico{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;font-size:24px;background:linear-gradient(145deg,#f7d5e6,#dce4ff);box-shadow:0 3px 7px #9a7f9b19}
+.dock{display:flex;justify-content:space-around;background:#ffffffb8;padding:12px;border-radius:20px}
+.dock .ico{width:44px;height:44px}
+.card{background:white;border:1px solid #f0e3ef;border-radius:17px;padding:13px;margin:10px 0;font-size:13px;line-height:1.6}
+.person{display:flex;gap:10px;align-items:center}
+.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#f3c9de,#cbdcff);display:grid;place-items:center;font-size:20px}
+.small{font-size:11px;color:#9c8da0}
+.bubble{padding:10px 12px;border-radius:15px;margin:10px 0;max-width:88%;font-size:13px;line-height:1.5}
+.left{background:#f0eaf7;border-bottom-left-radius:4px}
+.right{background:#f6ddea;margin-left:auto;border-bottom-right-radius:4px}
+button.back{border:0;border-radius:12px;padding:9px 13px;background:#f0e6f4;color:#6e5473;cursor:pointer}
+.photo{background:linear-gradient(140deg,#f8d8e7,#d6e2ff);border-radius:14px;min-height:95px;display:grid;place-items:center;font-size:30px}
+.note{background:#fff5cf;border-radius:13px;padding:14px;margin:10px 0;font-size:13px;line-height:1.6}
+a{color:#b76d9a}
+footer{text-align:center;font-size:11px;color:#a18ca2;margin:20px 0 0}
+</style>
+</head>
+<body>
+<header>
+<h1>Axel × Aily ♡</h1>
+<p>AN INTERACTIVE PHONE AU</p>
+</header>
+<div class="phone">
+<div class="top"><span>♡ 19:09</span><span>●●● ▰</span></div>
+<main class="screen" id="screen"></main>
+</div>
+<footer>made with love ♡ fictional AU universe</footer>
+<script>
+const screen=document.getElementById('screen');
+function home(){
+screen.innerHTML=`
+<div class="status"><span>Thursday, 19:09</span><span>♡ 100%</span></div>
+<div class="wallpaper"><p>✧･ﾟ: *✧･ﾟ:*　♡　*:･ﾟ✧*:･ﾟ✧</p>
+<h2>Hey, Aily.</h2><p>Someone might be waiting for your reply...</p>
+<p style="text-align:right">— Axel ♡</p></div>
+<div class="grid">
+<button class="app" onclick="messages()"><span class="ico">💬</span>Messages</button>
+<button class="app" onclick="instagram()"><span class="ico">📸</span>Instagram</button>
+<button class="app" onclick="photos()"><span class="ico">🖼️</span>Photos</button>
+<button class="app" onclick="notes()"><span class="ico">📝</span>Notes</button>
+<button class="app" onclick="contacts()"><span class="ico">👤</span>Contacts</button>
+<button class="app" onclick="music()"><span class="ico">🎧</span>Music</button>
+<button class="app" onclick="calendar()"><span class="ico">📅</span>Calendar</button>
+<button class="app" onclick="safari()"><span class="ico">🌐</span>Safari</button>
+<button class="app" onclick="about()"><span class="ico">💌</span>About AU</button>
+</div>
+<div class="dock">
+<button class="app" onclick="messages()"><span class="ico">💬</span></button>
+<button class="app" onclick="photos()"><span class="ico">🖼️</span></button>
+<button class="app" onclick="music()"><span class="ico">🎵</span></button>
+<button class="app" onclick="safari()"><span class="ico">🌐</span></button>
+</div>`;
+}
+function page(title,content){
+screen.innerHTML=`<button class="back" onclick="home()">← Home</button><h2 style="margin-top:22px">${title}</h2><p class="sub">AXEL × AILY　♡</p>${content}`;
+}
+function messages(){
+page('Messages 💬',`
+<div class="card person"><div class="avatar">🖤</div><div><b>Axel</b><div class="small">online now</div></div></div>
+<div class="bubble left">udah sampai rumah belum?</div>
+<div class="bubble right">udahh, kenapa?</div>
+<div class="bubble left">gapapa. just making sure you're safe.</div>
+<div class="bubble right">cie perhatian banget 🙄</div>
+<div class="bubble left">ke kamu doang kali.</div>
+<div class="bubble right">AXEL?? 😭</div>
+<div class="card"><label for="reply">Your reply:</label><br><input id="reply" placeholder="type something..." style="width:100%;padding:11px;border:1px solid #eadbea;border-radius:10px;margin-top:8px"><button class="back" style="margin-top:8px" onclick="sendReply()">Send ♡</button><div id="sent" class="small"></div></div>`);
+}
+function sendReply(){
+let v=document.getElementById('reply').value;
+if(v.trim())document.getElementById('sent').textContent='You: '+v+' ♡';
+}
+function instagram(){
+page('Instagram 📸',`
+<div class="card"><b>aily.v</b><div class="photo">🎀 🌷 ☁️</div><p>little moments, little memories ♡</p><button class="back" onclick="like(this)">♡ Like</button> <span class="small">12 comments</span></div>
+<div class="card"><b>axel.z</b><div class="photo">🏀 🌆 🖤</div><p>practice done.</p><button class="back" onclick="like(this)">♡ Like</button></div>`);
+}
+function like(btn){btn.textContent=btn.textContent.includes('Liked')?'♡ Like':'♥ Liked!'}
+function photos(){
+page('Photos 🖼️',`
+<div class="grid">
+<div class="photo">🌷</div><div class="photo">☁️</div><div class="photo">🎀</div>
+<div class="photo">🏀</div><div class="photo">🌇</div><div class="photo">♡</div>
+</div><div class="card">Recently saved · 6 items<br><span class="small">the little things we don't post</span></div>`);
+}
+function notes(){
+page('Notes 📝',`
+<div class="note"><b>things i won't say out loud</b><br>1. I look for him in every crowd.<br>2. His texts make my day better.<br>3. Maybe I like him more than I should. ♡</div>
+<div class="note"><b>reminder</b><br>Don't forget your homework, Aily!</div>`);
+}
+function contacts(){
+page('Contacts 👤',`
+<div class="card person"><div class="avatar">🖤</div><div><b>Axelio Zardian</b><div class="small">Axel · Favorite headache</div><div>📞 08xx-xxxx-AXEL</div></div></div>
+<div class="card person"><div class="avatar">🎀</div><div><b>Vionata Aily</b><div class="small">Aily · Main character</div><div>📞 This is her phone ♡</div></div></div>
+<p class="small">Fictional contact details for this AU.</p>`);
+}
+function music(){
+page('Now Playing 🎧',`
+<div class="wallpaper" style="text-align:center"><div style="font-size:65px">🎧</div><h2 id="song">love playlist</h2><p id="artist">for late-night thoughts</p></div>
+<div class="card"><button class="back" onclick="pickSong('soft spot','a song for someone special')">♡ Soft spot</button></div>
+<div class="card"><button class="back" onclick="pickSong('almost us','for the almost-confessions')">♡ Almost us</button></div>
+<div class="card"><button class="back" onclick="pickSong('after 11 pm','when I miss you')">♡ After 11 PM</button></div>
+<p class="small">Choose a mood to update the playlist. This is a visual mockup; no audio plays.</p>`);
+}
+function pickSong(s,a){document.getElementById('song').textContent=s;document.getElementById('artist').textContent=a;}
+function calendar(){
+page('Calendar 📅',`
+<div class="card"><div class="small">THURSDAY</div><h2>22 October</h2><p>♡ 07:00 — School</p><p>♡ 15:30 — Basketball practice</p><p>♡ 19:00 — Axel texts Aily</p></div>
+<div class="card">Tomorrow<br><b>Maybe we'll meet again.</b></div>`);
+}
+function safari(){
+page('Safari 🌐',`
+<div class="card"><div class="small">SEARCH THE WEB</div><input id="search" placeholder="search something..." style="width:100%;padding:12px;border:1px solid #eadbea;border-radius:10px"><button class="back" style="margin-top:9px" onclick="doSearch()">Search</button><p id="result"></p></div>
+<div class="card"><b>Recently visited</b><p>♡ school portal</p><p>♡ basketball highlights</p><p>♡ how to tell if someone likes you</p></div>`);
+}
+function doSearch(){let q=document.getElementById('search').value;document.getElementById('result').textContent=q?'Searching for: '+q+' (AU preview)':'Type something first!';}
+function about(){
+page('About this AU 💌',`
+<div class="wallpaper"><h2>Axel & Aily</h2><p>He is loud with everyone, but somehow quiet around her.</p><p>She has a beautiful smile, but rarely lets him see it.</p></div>
+<div class="card"><b>“berisik, tapi gue suka.”</b><p class="small">— Axel</p></div>
+<div class="card"><b>“ia memiliki senyuman yang begitu indah, namun mengapa ia tak pernah menunjukkannya di hadapan orang-orang?”</b><p class="small">— Vionata Aily</p></div>`);
+}
+home();
+</script>
+</body>
+  </html>
+  
