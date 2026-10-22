@@ -1,215 +1,476 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Aily's iPhone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The One Sunflower — Axel & Aily</title>
 <style>
 *{box-sizing:border-box}
-:root{--pink:#f5c9d8;--ink:#222}
-body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#fbe5ed,#e8d9e7 58%,#c9d5e7);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:white;display:flex;align-items:center;justify-content:center;padding:18px 8px}
-.phone{width:min(390px,100%);height:min(820px,94dvh);min-height:570px;background:#080808;border:3px solid #555;border-radius:52px;padding:9px;box-shadow:0 24px 70px #3c253955,0 0 0 2px #111;position:relative;overflow:hidden}
-.screen{height:100%;width:100%;border-radius:42px;overflow:hidden;position:relative;background:linear-gradient(150deg,#f8dce5,#d9d5ed 52%,#f8e6d9);isolation:isolate}
-.wallpaper{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 20% 25%,#fff8 0 8%,transparent 35%),radial-gradient(ellipse at 85% 75%,#f8a8c566 0 13%,transparent 42%),linear-gradient(145deg,#f9dce6,#d7d5f1 55%,#f5d9d1)}
-.status{height:34px;padding:10px 24px 0;display:flex;justify-content:space-between;align-items:center;color:#29212c;font-size:12px;font-weight:750}
-.status-right{display:flex;align-items:center;gap:5px}
-.signal{letter-spacing:-3px;font-size:15px}.battery{width:19px;height:10px;border:1.4px solid;border-radius:3px;position:relative}
-.battery:before{content:"";position:absolute;left:2px;top:2px;width:12px;height:4px;background:currentColor;border-radius:1px}
-.battery:after{content:"";position:absolute;right:-3px;top:2px;width:2px;height:4px;background:currentColor;border-radius:0 2px 2px 0}
-.island{position:absolute;top:8px;left:50%;transform:translateX(-50%);height:27px;width:100px;background:#050505;border-radius:20px;z-index:20}
-.lock{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;padding:70px 20px 30px;text-align:center;color:#fff;background:linear-gradient(160deg,#e6bfd3aa,#aaa7d9aa 60%,#e9c4d1aa)}
-.lock-date{font-size:15px;text-shadow:0 1px 8px #655}
-.lock-time{font-size:78px;font-weight:250;letter-spacing:-4px;line-height:1.15;text-shadow:0 2px 15px #6656}
-.lock-bottom{margin-top:auto;font-size:13px;text-shadow:0 1px 8px #555}
-.unlock{border:1px solid #ffffff9c;background:#ffffff30;color:white;border-radius:30px;padding:12px 25px;margin-top:20px;font-size:14px}
-.home{height:calc(100% - 34px);padding:9px 13px 13px;display:flex;flex-direction:column;color:#29232f}
-.top-widgets{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.widget{border:1px solid #ffffffa8;background:#ffffff8a;color:#29232f;border-radius:23px;padding:13px;box-shadow:0 5px 18px #70526c12;backdrop-filter:blur(18px);min-width:0}
-.widget .small{font-size:10px;opacity:.7;font-weight:650;letter-spacing:.2px}
-.bigtime{font-size:31px;font-weight:600;letter-spacing:-1.4px;margin:4px 0}
-.date{font-size:12px;font-weight:600}
-.weather{display:flex;align-items:center;gap:8px;margin-top:7px}
-.weather-icon{font-size:30px}.temp{font-size:25px;font-weight:550;letter-spacing:-1px}
-.forecast{font-size:10px;opacity:.72;margin-top:2px}
-.calendar{margin-top:10px;display:flex;gap:10px;align-items:center}
-.caldate{width:42px;height:45px;border-radius:12px;background:#ffffffad;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
-.caldate b{font-size:20px}.caldate span{font-size:9px;color:#d76b8c;font-weight:800}
-.calinfo{font-size:11px;line-height:1.45}.calinfo strong{font-size:12px;display:block}
-.camwidget{margin-top:10px;min-height:94px;display:flex;align-items:center;gap:12px}
-.cam-preview{height:65px;width:92px;flex-shrink:0;border-radius:14px;background:linear-gradient(145deg,#b6c1c7,#68747e);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.cam-preview:before{content:"";position:absolute;width:100px;height:65px;transform:rotate(-20deg);background:repeating-linear-gradient(90deg,#ffffff15 0 2px,transparent 2px 22px)}
-.cam-preview:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#28333c66,transparent)}
-.cam-lens{height:25px;width:25px;border-radius:50%;border:4px solid #dce0e2;background:#26313c;z-index:1;box-shadow:0 0 0 4px #4d5963}
-.cam-copy{font-size:11px;line-height:1.5}.cam-copy strong{display:block;font-size:12px}.live{color:#419a71;font-size:9px;font-weight:800}
-.appgrid{display:grid;grid-template-columns:repeat(4,1fr);row-gap:14px;column-gap:7px;margin-top:auto;padding:17px 0 16px}
-.app{border:0;background:transparent;padding:0;color:#29232f;display:flex;flex-direction:column;align-items:center;gap:5px;font:inherit;min-width:0;cursor:pointer}
-.appicon{height:49px;width:49px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 10px #44334b18;border:1px solid #ffffff75}
-.appname{font-size:10px;font-weight:550;text-shadow:0 1px 5px #fff8}
-.i-msg{background:linear-gradient(#8fe4a1,#30bc67)}.i-phone{background:linear-gradient(#9de9a5,#32b968)}.i-cam{background:linear-gradient(140deg,#f8f8f8,#bbc3d0)}.i-photo{background:linear-gradient(140deg,#fff,#f6e6e9)}
-.i-line{background:#06c755}.i-ig{background:linear-gradient(35deg,#ffb35d,#f04679,#9c52c5)}.i-x{background:#171717;color:white}.i-browser{background:linear-gradient(#9ddaff,#eaf8ff)}.i-note{background:linear-gradient(#fff6b5,#ffe47c)}.i-cal{background:linear-gradient(#fff,#f2dfe5)}.i-music{background:linear-gradient(145deg,#fa9bcb,#bd92f7)}.i-mail{background:linear-gradient(#a9d7ff,#eaf5ff)}.i-alarm{background:linear-gradient(#ded4ff,#b8a7ef)}.i-settings{background:linear-gradient(#e4e5e9,#9ba3ad)}.i-contact{background:linear-gradient(#c2e3ff,#719ed5)}.i-weather{background:linear-gradient(#92d6ff,#eaf8ff)}
-.dock{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:10px 9px;border:1px solid #ffffff8c;background:#ffffff65;border-radius:27px;backdrop-filter:blur(20px);margin-top:0}
-.dock .appicon{height:46px;width:46px}.dock .appname{display:none}
-.home-indicator{width:105px;height:4px;background:#fff;border-radius:10px;position:absolute;bottom:5px;left:50%;transform:translateX(-50%);z-index:25;mix-blend-mode:difference}
-.modal{position:absolute;inset:0;z-index:30;background:#f6edf5;color:#29232f;display:none;flex-direction:column}
-.modal-head{height:55px;display:flex;align-items:center;justify-content:space-between;padding:0 17px;border-bottom:1px solid #0000000c;font-weight:750;font-size:16px}
-.back{border:0;background:#ffffffb5;border-radius:18px;padding:7px 12px;color:#5e5262;font-size:12px}
-.content{padding:17px;overflow:auto;flex:1;font-size:14px;line-height:1.5}
-.chat{background:white;border-radius:17px 17px 17px 5px;padding:10px 12px;margin:8px 35px 8px 0;box-shadow:0 2px 5px #00000008}
-.mine{background:#c9f5d6;border-radius:17px 17px 5px 17px;margin:8px 0 8px 35px}
-.chatname{font-size:10px;color:#8a6a7c;font-weight:750;margin-bottom:3px}
-.noteinput{width:100%;min-height:160px;border:0;border-radius:16px;padding:13px;font:inherit;background:#fff;color:#222;resize:vertical}
-.rowbtn{border:0;background:white;border-radius:13px;padding:12px;margin:5px 0;width:100%;text-align:left;color:#29232f;font:inherit}
-.camera-view{flex:1;background:#202329;display:flex;align-items:center;justify-content:center;color:#ddd;flex-direction:column;gap:12px}
-.camera-view button{background:#fff;border:0;border-radius:50%;height:60px;width:60px;font-size:22px}
-.pinbox{position:absolute;inset:0;z-index:40;background:#f8e8f0;color:#302735;display:none;flex-direction:column;align-items:center;justify-content:center;padding:24px}
-.pin-dots{display:flex;gap:13px;margin:22px}
-.dot{width:10px;height:10px;border:1px solid #6f5665;border-radius:50%}.dot.full{background:#6f5665}
-.keypad{display:grid;grid-template-columns:repeat(3,65px);gap:12px;margin-top:10px}
-.key{height:55px;border:0;border-radius:50%;background:#ffffffad;color:#302735;font-size:22px}
-.pin-hint{font-size:12px;opacity:.65;min-height:18px}
-@media(max-height:680px){.phone{height:96dvh;min-height:0}.home{padding:5px 11px 9px}.widget{padding:9px}.appgrid{row-gap:8px;padding:9px 0}.appicon{height:42px;width:42px}.camwidget{min-height:78px}.cam-preview{height:53px}}
+:root{--pink:#f6dce8;--blue:#dceaf8;--ink:#283247;--glass:rgba(255,255,255,.76)}
+body{margin:0;min-height:100vh;background:linear-gradient(135deg,#f9e5ed,#e4efff,#f9e8df);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);display:flex;align-items:center;justify-content:center;padding:20px}
+.phone{width:min(390px,100%);height:min(820px,92vh);min-height:590px;background:#171923;border:7px solid #22232b;border-radius:48px;padding:8px;box-shadow:0 24px 70px #6d607766;position:relative;overflow:hidden}
+.screen{height:100%;border-radius:35px;overflow:hidden;position:relative;background:linear-gradient(160deg,#f7e1eb,#dceafa 65%,#f9e9d9)}
+.notch{position:absolute;z-index:20;top:7px;left:50%;transform:translateX(-50%);width:112px;height:27px;background:#171923;border-radius:20px}
+.status{position:absolute;z-index:15;top:12px;left:24px;right:24px;display:flex;justify-content:space-between;font-size:12px;font-weight:700}
+.page{position:absolute;inset:0;display:none;padding:48px 17px 18px;overflow:auto}
+.page.active{display:block}
+.lock{background:linear-gradient(160deg,#e9c7d7aa,#b8d0edaa),radial-gradient(circle at 70% 25%,#fff 0 4%,transparent 5%),linear-gradient(135deg,#f5e1d9,#c7d9f1);text-align:center;color:#fff;text-shadow:0 2px 9px #59627c66}
+.lock:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#a5badc66,transparent 65%);pointer-events:none}
+.lock>*{position:relative;z-index:1}
+.lock-date{margin-top:76px;font-size:16px;font-weight:600}
+.lock-time{font-size:76px;line-height:1.1;font-weight:300;letter-spacing:-4px;margin-top:5px}
+.lock-note{margin-top:30px;background:#ffffff66;border:1px solid #ffffff88;padding:14px;border-radius:18px;color:#39435b;text-shadow:none;font-size:13px}
+.unlock{position:absolute;bottom:35px;left:0;right:0;font-size:13px;cursor:pointer}
+.bottom-bar{position:absolute;z-index:30;bottom:7px;left:50%;transform:translateX(-50%);width:112px;height:4px;background:#22232b99;border-radius:10px}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:23px;margin-bottom:5px}
+h2{font-size:18px}
+.sub{font-size:12px;opacity:.7;margin-bottom:16px}
+.glass{background:var(--glass);border:1px solid #ffffffaa;border-radius:22px;padding:14px;box-shadow:0 7px 22px #71809b14;backdrop-filter:blur(14px)}
+.pin-page{text-align:center;padding-top:100px}
+.pin-dots{font-size:26px;letter-spacing:12px;margin:24px 0}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:255px;margin:25px auto}
+.key{border:0;border-radius:50%;width:62px;height:62px;background:#ffffffa8;color:#29364c;font-size:23px;cursor:pointer}
+.key:active,.app:active,.dock button:active{transform:scale(.94)}
+.small{font-size:12px;opacity:.7}
+.home-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#fff9;font-size:22px}
+.widget{margin-bottom:14px}
+.widget-title{font-size:12px;opacity:.7;margin-bottom:6px}
+.widget-clock{font-size:34px;font-weight:300}
+.widget-caption{font-size:12px}
+.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 8px;margin-top:17px}
+.app{background:none;border:0;padding:0;color:var(--ink);font-size:11px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;min-width:0}
+.app-icon{width:51px;height:51px;border-radius:16px;display:grid;place-items:center;font-size:26px;background:#ffffffb8;box-shadow:0 5px 13px #64738b18}
+.dock{position:absolute;bottom:22px;left:13px;right:13px;display:flex;justify-content:space-around;padding:11px 5px;border-radius:23px;background:#ffffff8a;backdrop-filter:blur(14px)}
+.dock button{border:0;background:none;font-size:25px;cursor:pointer}
+.home-page{padding-bottom:100px}
+.app-page{padding-top:52px}
+.app-top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.back{border:0;background:#ffffffa8;border-radius:12px;padding:9px 12px;font-size:15px;cursor:pointer}
+.app-content{font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.field{width:100%;border:1px solid #d7dce8;background:#ffffffb8;border-radius:12px;padding:12px;font:inherit;margin:5px 0 10px;color:var(--ink)}
+.action{border:0;border-radius:12px;padding:11px 14px;background:#d9e8fa;color:#26354d;font-weight:600;cursor:pointer;margin:3px 2px 3px 0}
+.note-area{min-height:170px;resize:vertical}
+.row{display:flex;gap:8px;align-items:center}
+.row>*{min-width:0}
+.contact{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #dce1eb}
+.contact-emoji{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#fff9;font-size:20px}
+.mail-item{padding:12px 0;border-bottom:1px solid #dce1eb}
+.camera-box{height:270px;border-radius:20px;background:#28303b;color:#fff;display:grid;place-items:center;text-align:center;overflow:hidden}
+.camera-box video{width:100%;height:100%;object-fit:cover}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.photo-tile{aspect-ratio:1;background:#ffffff9c;border-radius:10px;display:grid;place-items:center;font-size:27px}
+.toggle-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #dce1eb}
+@media(max-height:650px){.lock-date{margin-top:35px}.lock-time{font-size:62px}.app-grid{gap:10px 8px}.app-icon{width:43px;height:43px}.page{padding-top:42px}}
 </style>
 </head>
 <body>
 <div class="phone">
- <div class="screen">
-  <div class="wallpaper"></div>
-  <div class="status"><span id="statusTime">9:41</span><span class="status-right"><span class="signal">▂▄▆</span><span>Wi-Fi</span><span class="battery"></span></span></div>
-  <div class="island"></div>
-  <div class="lock" id="lock">
-   <div class="lock-date" id="lockDate">Senin, 19 September</div>
-   <div class="lock-time" id="lockTime">09:41</div>
-   <div class="lock-bottom">iPhone Aily</div>
-   <button class="unlock" onclick="openPin()">↑ &nbsp; Ketuk untuk membuka</button>
-  </div>
-  <div class="pinbox" id="pinbox">
-   <div style="font-size:12px;opacity:.7">MASUKKAN KODE SANDI</div>
-   <div style="font-size:18px;font-weight:750;margin-top:9px">iPhone Aily</div>
-   <div class="pin-dots" id="pinDots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-   <div class="pin-hint" id="pinHint">Masukkan kode sandi</div>
-   <div class="keypad" id="keypad"></div>
-   <button class="back" style="margin-top:18px" onclick="closePin()">Batal</button>
-  </div>
-  <div class="home" id="home" style="display:none">
-   <div class="top-widgets">
-    <div class="widget">
-     <div class="small" id="widgetDay">HARI INI</div>
-     <div class="bigtime" id="widgetTime">09:41</div>
-     <div class="date" id="widgetDate">19 September</div>
-    </div>
-    <div class="widget">
-     <div class="small">CUACA</div>
-     <div class="weather"><span class="weather-icon">🌤️</span><div><div class="temp">28°</div><div class="forecast">Cerah berawan</div></div></div>
-     <div class="forecast">Karawang · perkiraan</div>
-    </div>
-   </div>
-   <div class="widget calendar">
-    <div class="caldate"><span id="calMonth">SEP</span><b id="calDay">19</b></div>
-    <div class="calinfo"><strong>Kalender</strong><span id="calendarText">Tidak ada acara hari ini</span></div>
-    <div style="margin-left:auto;font-size:23px">🗓️</div>
-   </div>
-   <div class="widget camwidget" onclick="openApp('Kamera IP')" style="cursor:pointer">
-    <div class="cam-preview"><div class="cam-lens"></div></div>
-    <div class="cam-copy"><strong>Kamera IP</strong><span class="live">● SIAP</span><div style="opacity:.65;font-size:10px">Pratinjau simulasi</div></div>
-    <div style="margin-left:auto;font-size:20px;opacity:.5">›</div>
-   </div>
-   <div class="appgrid" id="appgrid"></div>
-   <div class="dock" id="dock"></div>
-  </div>
-  <div class="modal" id="modal">
-   <div class="modal-head"><button class="back" onclick="closeApp()">‹ Home</button><span id="appTitle">App</span><span style="width:52px"></span></div>
-   <div class="content" id="appContent"></div>
-  </div>
-  <div class="home-indicator"></div>
+  <div class="screen" id="screen">
+    <div class="notch"></div>
+    <div class="status"><span id="status-time">9:41</span><span>● ▰ ▰</span></div>
+
+    <section class="page lock active" id="lock-page">
+      <div class="lock-date" id="lock-date">Monday, October 19</div>
+      <div class="lock-time" id="lock-time">09:41</div>
+      <div class="lock-note">
+        <strong>🌻 The One Sunflower</strong>
+        <p style="margin:7px 0 0">one sunflower, two different worlds.</p>
+      </div>
+      <div class="unlock" onclick="showPage('pin-page')">⌃<br>Ketuk untuk membuka</div>
+    </section>
+
+    <section class="page pin-page" id="pin-page">
+      <h2>Masukkan Kode Sandi</h2>
+      <div class="small">Masukkan PIN untuk membuka iPhone</div>
+      <div class="pin-dots" id="pin-dots">○ ○ ○ ○</div>
+      <div class="keypad" id="keypad">
+        <button class="key" onclick="addPin('1')">1</button>
+        <button class="key" onclick="addPin('2')">2</button>
+        <button class="key" onclick="addPin('3')">3</button>
+        <button class="key" onclick="addPin('4')">4</button>
+        <button class="key" onclick="addPin('5')">5</button>
+        <button class="key" onclick="addPin('6')">6</button>
+        <button class="key" onclick="addPin('7')">7</button>
+        <button class="key" onclick="addPin('8')">8</button>
+        <button class="key" onclick="addPin('9')">9</button>
+        <button class="key" onclick="clearPin()">⌫</button>
+        <button class="key" onclick="addPin('0')">0</button>
+        <button class="key" onclick="clearPin()">×</button>
+      </div>
+      <div class="small" id="pin-message">Petunjuk PIN: tanggal spesial Aily 🌻</div>
+      <button class="action" onclick="showPage('lock-page')">Kembali</button>
+    </section>
+
+    <section class="page home-page" id="home-page">
+      <div class="home-head">
+        <div><h1>Good day, Aily ♡</h1><div class="sub">The One Sunflower</div></div>
+        <div class="avatar">🌻</div>
+      </div>
+      <div class="glass widget">
+        <div class="widget-title">MONDAY · YOUR DAY</div>
+        <div class="widget-clock" id="home-time">09:41</div>
+        <div class="widget-caption" id="home-date">Take it one day at a time.</div>
+      </div>
+      <div class="glass widget">
+        <div class="widget-title">A LITTLE REMINDER</div>
+        <strong>“You are someone's favorite story.”</strong>
+        <div class="small" style="margin-top:5px">— a note from Axel?</div>
+      </div>
+      <div class="app-grid" id="app-grid">
+        <button class="app" onclick="openApp('Camera')"><span class="app-icon">📷</span>Camera</button>
+        <button class="app" onclick="openApp('Photos')"><span class="app-icon">🌄</span>Photos</button>
+        <button class="app" onclick="openApp('Messages')"><span class="app-icon">💬</span>Messages</button>
+        <button class="app" onclick="openApp('LINE')"><span class="app-icon">🟢</span>LINE</button>
+        <button class="app" onclick="openApp('Instagram')"><span class="app-icon">📸</span>Instagram</button>
+        <button class="app" onclick="openApp('X')"><span class="app-icon">𝕏</span>X</button>
+        <button class="app" onclick="openApp('Phone')"><span class="app-icon">📞</span>Phone</button>
+        <button class="app" onclick="openApp('Mail')"><span class="app-icon">✉️</span>Mail</button>
+        <button class="app" onclick="openApp('Browser')"><span class="app-icon">🧭</span>Browser</button>
+        <button class="app" onclick="openApp('Notes')"><span class="app-icon">📝</span>Notes</button>
+        <button class="app" onclick="openApp('Music')"><span class="app-icon">🎧</span>Music</button>
+        <button class="app" onclick="openApp('Weather')"><span class="app-icon">☀️</span>Weather</button>
+        <button class="app" onclick="openApp('Contacts')"><span class="app-icon">👥</span>Contacts</button>
+        <button class="app" onclick="openApp('Calendar')"><span class="app-icon">🗓️</span>Calendar</button>
+        <button class="app" onclick="openApp('Clock')"><span class="app-icon">⏰</span>Clock</button>
+        <button class="app" onclick="openApp('Settings')"><span class="app-icon">⚙️</span>Settings</button>
+      </div>
+      <div class="dock">
+        <button onclick="openApp('Phone')" aria-label="Phone">📞</button>
+        <button onclick="openApp('Messages')" aria-label="Messages">💬</button>
+        <button onclick="openApp('Browser')" aria-label="Browser">🧭</button>
+        <button onclick="openApp('Music')" aria-label="Music">🎧</button>
+      </div>
+    </section>
+
+    <section class="page app-page" id="app-page">
+      <div class="app-top">
+        <button class="back" onclick="showPage('home-page')">‹ Home</button>
+        <div><h2 id="app-title" style="margin:0">App</h2><div class="small">The One Sunflower</div></div>
+      </div>
+      <div class="app-content glass" id="app-content"></div>
+    </section>
+    <div class="bottom-bar"></div>
  </div>
-</div>
-<script>
-const $=id=>document.getElementById(id);
-const days=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-const months=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-function updateClock(){
- const d=new Date(),time=d.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',hour12:false});
- $('statusTime').textContent=time;$('lockTime').textContent=time;$('widgetTime').textContent=time;
- $('lockDate').textContent=days[d.getDay()]+', '+d.getDate()+' '+months[d.getMonth()];
- $('widgetDay').textContent=days[d.getDay()].toUpperCase();$('widgetDate').textContent=d.getDate()+' '+months[d.getMonth()];
- $('calMonth').textContent=months[d.getMonth()].slice(0,3).toUpperCase();$('calDay').textContent=d.getDate();
+ <script>
+const PIN = "1909";
+let enteredPin = "";
+let currentApp = "";
+let cameraStream = null;
+
+function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+  const page = document.getElementById(pageId);
+  if (page) page.classList.add("active");
+  if (pageId !== "app-page") stopCamera();
 }
-updateClock();setInterval(updateClock,15000);
-const apps=[
- ['Messages','💬','i-msg'],['Instagram','📷','i-ig'],['Photos','🌸','i-photo'],['Camera','📸','i-cam'],
- ['LINE','LINE','i-line'],['X','𝕏','i-x'],['Browser','🌐','i-browser'],['Mail','✉️','i-mail'],
- ['Calendar','🗓️','i-cal'],['Notes','📝','i-note'],['Music','♫','i-music'],['Weather','🌤️','i-weather'],
- ['Contacts','👤','i-contact'],['Alarm','⏰','i-alarm'],['Settings','⚙️','i-settings'],['Phone','📞','i-phone']
-];
-const dockNames=['Phone','Messages','Browser','Music'];
-function appButton(a){return `<button class="app" onclick="openApp('${a[0]}')"><span class="appicon ${a[2]}">${a[1]}</span><span class="appname">${a[0]}</span></button>`}
-$('appgrid').innerHTML=apps.filter(a=>!dockNames.includes(a[0])).map(appButton).join('');
-$('dock').innerHTML=dockNames.map(n=>appButton(apps.find(a=>a[0]===n))).join('');
-function openPin(){$('pinbox').style.display='flex';$('lock').style.display='none';pin='';renderDots()}
-function closePin(){$('pinbox').style.display='none';$('lock').style.display='flex';pin=''}
-let pin='';
-function renderDots(){$('pinDots').innerHTML=[0,1,2,3].map(i=>`<span class="dot ${i<pin.length?'full':''}"></span>`).join('')}
-function makeKeys(){
- const nums=['1','2','3','4','5','6','7','8','9','⌫','0','OK'];
- $('keypad').innerHTML=nums.map(n=>`<button class="key" onclick="pressKey('${n}')">${n}</button>`).join('');
+
+function addPin(number) {
+  if (enteredPin.length >= 4) return;
+  enteredPin += number;
+  updatePinDots();
+  if (enteredPin.length === 4) {
+    if (enteredPin === PIN) {
+      document.getElementById("pin-message").textContent = "Welcome back, Aily ♡";
+      setTimeout(() => {
+        enteredPin = "";
+        updatePinDots();
+        showPage("home-page");
+      }, 250);
+    } else {
+      document.getElementById("pin-message").textContent = "PIN salah! Coba lagi ya 🌻";
+      setTimeout(() => {
+        enteredPin = "";
+        updatePinDots();
+      }, 650);
+    }
+  }
 }
-makeKeys();
-function pressKey(k){
- if(k==='⌫')pin=pin.slice(0,-1);
- else if(k==='OK'){checkPin();return}
- else if(pin.length<4)pin+=k;
- renderDots();if(pin.length===4)checkPin();
+
+function clearPin() {
+  enteredPin = "";
+  updatePinDots();
+  document.getElementById("pin-message").textContent = "Petunjuk PIN: tanggal spesial Aily 🌻";
 }
-function checkPin(){
- if(pin==='1909'){$('pinbox').style.display='none';$('home').style.display='flex';}
- else{$('pinHint').textContent='Kode sandi salah';pin='';renderDots()}
+
+function updatePinDots() {
+  const dots = ["○", "○", "○", "○"];
+  for (let i = 0; i < enteredPin.length; i++) dots[i] = "●";
+  document.getElementById("pin-dots").textContent = dots.join(" ");
 }
-function openApp(name){
- $('modal').style.display='flex';$('appTitle').textContent=name;
- const c=$('appContent');c.innerHTML='';
- const btn=(txt,fn)=>`<button class="rowbtn" onclick="${fn}">${txt}</button>`;
- if(name==='Messages'||name==='LINE'){
- c.innerHTML=`<div style="font-size:12px;color:#96788c;margin-bottom:12px">Percakapan</div>
- <div class="chat"><div class="chatname">Axel</div>Besok latihan basket. Jangan telat.</div>
- <div class="chat mine"><div class="chatname">Aily</div>emang aku pernah telat?</div>
- <div class="chat"><div class="chatname">Axel</div>Mau aku jawab jujur?</div>
- <div class="chat mine"><div class="chatname">Aily</div>gausah. ga jadi nanya.</div>
- <div class="chat"><div class="chatname">Axel</div>Berisik.</div>
- <div class="chat mine"><div class="chatname">Aily</div>YA UDAH DIEM 😭</div>`;
- }else if(name==='Instagram'){
- c.innerHTML=`<div style="font-size:20px;font-weight:800;margin-bottom:18px">Instagram</div><div class="widget" style="background:white"><div style="display:flex;gap:10px;align-items:center"><div style="background:#f4c7d9;border-radius:50%;padding:10px">🌻</div><b>aily.v</b></div><div style="height:180px;border-radius:15px;background:linear-gradient(145deg,#f8d7e4,#d5d7f3);display:flex;align-items:center;justify-content:center;font-size:52px;margin-top:12px">🌻</div><p>♡  ♡  ♡</p><div>sunny day ☁️</div></div>`;
- }else if(name==='Photos'){
- c.innerHTML=`<h3>Recents</h3><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px">${['🌻','🏀','🌇','🎀','☁️','📸','🌷','🎧','🩰'].map((e,i)=>`<div style="aspect-ratio:1;background:${['#f4d6e2','#d7dff2','#f2e4d0'][i%3]};border-radius:9px;display:grid;place-items:center;font-size:30px">${e}</div>`).join('')}</div>`;
- }else if(name==='Camera'||name==='Kamera IP'){
- c.innerHTML=`<div class="camera-view" style="min-height:330px;border-radius:18px"><div style="font-size:13px">Pratinjau kamera simulasi</div><div style="font-size:44px">📷</div><button onclick="alert('Kamera simulasi. Fitur foto asli dapat ditambahkan nanti.')">●</button><div style="font-size:11px">Kamera belum mengambil foto</div></div>`;
- }else if(name==='Notes'){
- c.innerHTML=`<div style="font-size:12px;color:#8a7884;margin-bottom:10px">Catatan Baru</div><textarea class="noteinput" placeholder="Tulis catatan Aily di sini..."></textarea>`;
- }else if(name==='Browser'){
- c.innerHTML=`<div style="display:flex;gap:7px"><input id="browserSearch" placeholder="Cari atau masukkan alamat" style="min-width:0;flex:1;border:0;background:white;border-radius:20px;padding:12px"><button class="back" onclick="browse()">Go</button></div><p style="font-size:12px;color:#847282">Favorit</p>${btn('Google','browseTo(\\'https://www.google.com\\')')}${btn('YouTube','browseTo(\\'https://www.youtube.com\\')')}${btn('Pinterest','browseTo(\\'https://www.pinterest.com\\')')}<p style="font-size:11px;color:#8d7d8b">Halaman web dibuka di tab browser baru.</p>`;
- }else if(name==='Phone'){
- c.innerHTML=`<div style="text-align:center;padding:20px 0"><div style="font-size:48px">📞</div><h3>Telepon</h3><p style="color:#847282">Panggilan simulasi</p></div>${btn('Axel · 08•••••••','alert(\\'Panggilan simulasi ke Axel\\')')}${btn('Ibu · Kontak','alert(\\'Panggilan simulasi\\')')}`;
- }else if(name==='Mail'){
- c.innerHTML=`<h3>Inbox</h3><div class="rowbtn"><b>School</b><br><span style="font-size:12px;color:#827582">Pengingat tugas sekolah</span></div><div class="rowbtn"><b>Notifications</b><br><span style="font-size:12px;color:#827582">Tidak ada pesan baru</span></div>`;
- }else if(name==='Music'){
- c.innerHTML=`<div style="text-align:center;padding:25px 0"><div style="width:190px;height:190px;margin:auto;border-radius:22px;background:linear-gradient(145deg,#f8c5db,#b9a9e8);display:grid;place-items:center;font-size:70px">♫</div><h3 style="margin-bottom:3px">Now Playing</h3><div style="color:#847282;font-size:12px">Belum ada lagu diputar</div><p><button class="back" onclick="alert('Pemutar musik online bisa ditambahkan berikutnya.')">▶ Play</button></p></div>`;
- }else if(name==='Calendar'){
- c.innerHTML=`<h3 id="fullDate"></h3><div class="widget" style="background:white"><b>Agenda</b><p>Tidak ada acara hari ini.</p></div>`;$('fullDate').textContent=$('widgetDate').textContent;
- }else if(name==='Weather'){
- c.innerHTML=`<div style="text-align:center;padding:35px 0"><div style="font-size:70px">🌤️</div><h1 style="font-size:54px;margin:4px">28°</h1><div>Karawang</div><p style="color:#827582">Cerah berawan · perkiraan tampilan</p></div>`;
- }else if(name==='Contacts'){
- c.innerHTML=`<h3>Kontak</h3>${btn('Axel Zardian · Basket','alert(\\'Kontak Axel\\')')}${btn('Ibu','alert(\\'Kontak Ibu\\')')}${btn('Teman Sekolah','alert(\\'Kontak teman sekolah\\')')}`;
- }else if(name==='Alarm'){
- c.innerHTML=`<h2>Alarm</h2><div class="widget" style="background:white"><div style="font-size:32px">05:00</div><div style="font-size:12px;color:#827582">Setiap hari · simulasi</div></div>${btn('＋ Tambah alarm','alert(\\'Pengaturan alarm simulasi\\')')}`;
- }else if(name==='Settings'){
- c.innerHTML=`<h3>Pengaturan</h3>${btn('Wallpaper','alert(\\'Wallpaper Aily\\')')}${btn('Suara & Haptik','alert(\\'Pengaturan suara simulasi\\')')}${btn('Baterai · 87%','alert(\\'Status baterai simulasi\\')')}${btn('Tentang iPhone','alert(\\'iPhone Aily · The One Sunflower\\')')}`;
- }else{
- c.innerHTML=`<div style="text-align:center;padding:35px 0"><div style="font-size:55px">🌻</div><h2>The One Sunflower</h2><p>Vionata Aily & Axelio Zardian</p><p style="color:#827582">Basketball × Mayoret</p><p>Enemies. For now.</p></div>`;
- }
+
+function updateTime() {
+  const now = new Date();
+  const time = now.toLocaleTimeString("id-ID", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  });
+  const date = now.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric"
+  });
+  document.getElementById("lock-time").textContent = time;
+  document.getElementById("status-time").textContent = time;
+  document.getElementById("home-time").textContent = time;
+  document.getElementById("lock-date").textContent = date;
+  document.getElementById("home-date").textContent = date + " · Make today yours.";
 }
-function closeApp(){$('modal').style.display='none'}
-function browse(){const v=$('browserSearch').value.trim();if(v)browseTo(/^https?:\/\//i.test(v)?v:'https://www.google.com/search?q='+encodeURIComponent(v))}
-function browseTo(url){window.open(url,'_blank','noopener')}
+updateTime();
+setInterval(updateTime, 1000);
+
+function stopCamera() {
+  if (cameraStream) {
+    cameraStream.getTracks().forEach(track => track.stop());
+    cameraStream = null;
+  }
+}
+
+function openApp(name) {
+  currentApp = name;
+  document.getElementById("app-title").textContent = name;
+  const content = document.getElementById("app-content");
+  stopCamera();
+
+  const views = {
+    "Messages": `
+      <h2>Messages 💬</h2>
+      <p class="small">Percakapan fiksi dalam dunia Axel & Aily.</p>
+      <div class="contact"><span class="contact-emoji">🌻</span><div><strong>Aily</strong><br><span class="small">Don't forget to smile today.</span></div></div>
+      <div class="contact"><span class="contact-emoji">🏀</span><div><strong>Axel</strong><br><span class="small">Jangan berisik di lapangan.</span></div></div>
+      <p class="small">Ini simulasi pesan, bukan SMS sungguhan.</p>
+    `,
+    "LINE": `
+      <h2>LINE 🟢</h2>
+      <div class="contact"><span class="contact-emoji">🏀</span><div><strong>Axel Zardian</strong><br><span class="small">online recently</span></div></div>
+      <div class="contact"><span class="contact-emoji">🎀</span><div><strong>Bestie 🎀</strong><br><span class="small">Aily, cerita dong!</span></div></div>
+      <p class="small">Chat ini hanya simulasi AU.</p>
+      <input class="field" id="line-input" placeholder="Tulis pesan...">
+      <button class="action" onclick="sendDemoMessage('line-input')">Kirim</button>
+      <div id="line-messages"></div>
+    `,
+    "Instagram": `
+      <h2>Instagram 📸</h2>
+      <div class="glass" style="margin-bottom:12px"><strong>aily.viona 🌻</strong><p style="margin:8px 0">little moments, little memories ♡</p><div style="font-size:55px;text-align:center">🌷🌻🦋</div><p class="small">likes by axel.z and others</p><button class="action" onclick="likePost(this)">♡ Like</button></div>
+      <div class="glass"><strong>axel.z 🏀</strong><p style="margin:8px 0">practice. repeat.</p><div style="font-size:55px;text-align:center">🏀🌆</div><button class="action" onclick="likePost(this)">♡ Like</button></div>
+      <p class="small">Akun dan postingan ini fiksi.</p>
+    `,
+    "X": `
+      <h2>𝕏</h2>
+      <p class="small">Timeline AU — The One Sunflower</p>
+      <div class="mail-item"><strong>aily.viona 🌻</strong><p>some people are annoying for no reason.</p><span class="small">♡ 12 · ↻ 3</span></div>
+      <div class="mail-item"><strong>axel.z 🏀</strong><p>fokus latihan. jangan ganggu.</p><span class="small">♡ 87 · ↻ 14</span></div>
+      <input class="field" id="x-input" placeholder="Apa yang kamu pikirkan?">
+      <button class="action" onclick="sendDemoMessage('x-input')">Post</button>
+      <div id="x-messages"></div>
+    `,
+    "Phone": `
+      <h2>Phone 📞</h2>
+      <div class="contact"><span class="contact-emoji">🏀</span><div><strong>Axel Zardian</strong><br><span class="small">Basketball team</span></div></div>
+      <div class="contact"><span class="contact-emoji">🎀</span><div><strong>Bestie</strong><br><span class="small">Favorite contact</span></div></div>
+      <p class="small">Panggilan tidak akan tersambung sungguhan.</p>
+      <button class="action" onclick="alert('Simulasi panggilan ke Axel 📞')">📞 Call Axel</button>
+      <button class="action" onclick="alert('Simulasi panggilan selesai.')">End call</button>
+    `,
+    "Mail": `
+      <h2>Mail ✉️</h2>
+      <div class="mail-item"><strong>School Announcement</strong><p>Don't forget tomorrow's assignment.</p><span class="small">Today · 08:30</span></div>
+      <div class="mail-item"><strong>Axel Zardian</strong><p>File latihan basket. Jangan sampai hilang.</p><span class="small">Yesterday</span></div>
+      <button class="action" onclick="alert('Fitur email ini hanya contoh, tidak mengirim email sungguhan.')">Compose ✎</button>
+    `,
+    "Browser": `
+      <h2>Browser 🧭</h2>
+      <p class="small">Masukkan alamat situs untuk membukanya.</p>
+      <input class="field" id="browser-url" placeholder="google.com">
+      <button class="action" onclick="openWebsite()">Go ↗</button>
+      <button class="action" onclick="openExternal('https://www.google.com')">Google</button>
+      <button class="action" onclick="openExternal('https://www.youtube.com')">YouTube</button>
+      <button class="action" onclick="openExternal('https://www.pinterest.com')">Pinterest</button>
+      <p class="small">Situs akan terbuka di tab browser baru.</p>
+    `,
+    "Notes": `
+      <h2>Notes 📝</h2>
+      <p class="small">Catatan tersimpan di browser perangkat ini.</p>
+      <textarea class="field note-area" id="notes-text" placeholder="Dear diary..."></textarea>
+      <button class="action" onclick="saveNotes()">Save note</button>
+      <button class="action" onclick="clearNotes()">Clear</button>
+      <div id="notes-status" class="small"></div>
+    `,
+    "Music": `
+      <h2>Music 🎧</h2>
+      <div style="font-size:72px;text-align:center;margin:20px">🎶</div>
+      <div class="glass" style="text-align:center">
+        <strong>The One Sunflower Playlist</strong>
+        <p class="small">songs for Aily & Axel</p>
+        <button class="action" onclick="openExternal('https://open.spotify.com')">Open Spotify ↗</button>
+        <button class="action" onclick="openExternal('https://music.youtube.com')">YouTube Music ↗</button>
+      </div>
+    `,
+    "Weather": `
+      <h2>Weather ☀️</h2>
+      <div style="font-size:58px;text-align:center;margin:15px">☀️</div>
+      <div style="text-align:center"><strong style="font-size:32px">28°C</strong><p>Cerah berawan</p></div>
+      <p class="small">Cuaca ini hanya contoh, bukan data real-time.</p>
+    `,
+    "Contacts": `
+      <h2>Contacts 👥</h2>
+      <div class="contact"><span class="contact-emoji">🌻</span><div><strong>Vionata Aily</strong><br><span class="small">Mayoret · Main character</span></div></div>
+      <div class="contact"><span class="contact-emoji">🏀</span><div><strong>Axelio Zardian</strong><br><span class="small">Basketball player · Guitarist</span></div></div>
+      <div class="contact"><span class="contact-emoji">🎀</span><div><strong>Aily's Bestie</strong><br><span class="small">Best friend</span></div></div>
+    `,
+    "Calendar": `
+      <h2>Calendar 🗓️</h2>
+      <div class="glass"><div id="calendar-date" style="font-size:28px;font-weight:600"></div><p>One day at a time, Aily ♡</p><p class="small">Tanggal mengikuti kalender perangkat.</p></div>
+    `,
+    "Clock": `
+      <h2>Clock ⏰</h2>
+      <div style="font-size:44px;text-align:center;margin:20px" id="clock-now">09:41</div>
+      <p class="small">Jam mengikuti waktu perangkat. Alarm ini tidak mengeluarkan bunyi.</p>
+      <input class="field" type="time" id="alarm-time">
+      <button class="action" onclick="setDemoAlarm()">Set alarm</button>
+      <div id="alarm-status" class="small"></div>
+    `,
+    "Settings": `
+      <h2>Settings ⚙️</h2>
+      <div class="toggle-row"><span>Airplane Mode ✈️</span><input type="checkbox"></div>
+      <div class="toggle-row"><span>Wi-Fi</span><strong>Connected</strong></div>
+      <div class="toggle-row"><span>Bluetooth</span><input type="checkbox"></div>
+      <div class="toggle-row"><span>Dark Mode</span><input type="checkbox" onchange="toggleDarkMode(this)"></div>
+      <div class="toggle-row"><span>Sounds</span><input type="checkbox" checked></div>
+      <p class="small" style="margin-top:15px">The One Sunflower · AU phone simulator</p>
+      <button class="action" onclick="showPage('lock-page')">Lock iPhone 🔒</button>
+    `,
+    "Camera": `
+      <h2>Camera 📷</h2>
+      <div class="camera-box" id="camera-box"><div><div style="font-size:48px">📷</div><p>Camera preview</p><span class="small">Izinkan akses kamera jika ingin mencoba.</span></div></div>
+      <div style="text-align:center;margin-top:12px">
+        <button class="action" onclick="startCamera()">Open camera</button>
+        <button class="action" onclick="stopCamera();document.getElementById('camera-box').innerHTML='Camera stopped 📷'">Close</button>
+      </div>
+      <p class="small">Kamera memerlukan izin browser dan koneksi HTTPS.</p>
+    `,
+    "Photos": `
+      <h2>Photos 🌄</h2>
+      <div class="photo-grid">
+        <div class="photo-tile">🌻</div><div class="photo-tile">🌷</div><div class="photo-tile">🦋</div>
+        <div class="photo-tile">🏀</div><div class="photo-tile">🎸</div><div class="photo-tile">🌇</div>
+      </div>
+      <p class="small" style="margin-top:12px">Galeri contoh AU. Foto sungguhan bisa ditambahkan nanti.</p>
+    `
+  };
+
+  content.innerHTML = views[name] || "<h2>" + escapeHTML(name) + "</h2><p>App demo 🌻</p>";
+  showPage("app-page");
+
+  if (name === "Notes") {
+    const area = document.getElementById("notes-text");
+    area.value = localStorage.getItem("ailyNotes") || "";
+  }
+  if (name === "Calendar") {
+    document.getElementById("calendar-date").textContent =
+      new Date().toLocaleDateString("id-ID", {day:"numeric",month:"long",year:"numeric"});
+  }
+  if (name === "Clock") updateClockApp();
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[char]);
+}
+
+function sendDemoMessage(inputId) {
+  const input = document.getElementById(inputId);
+  if (!input || !input.value.trim()) return;
+  const targetId = inputId === "line-input" ? "line-messages" : "x-messages";
+  const target = document.getElementById(targetId);
+  const item = document.createElement("div");
+  item.className = "mail-item";
+  item.textContent = input.value.trim();
+  target.prepend(item);
+  input.value = "";
+}
+
+function likePost(button) {
+  const liked = button.dataset.liked === "yes";
+  button.dataset.liked = liked ? "no" : "yes";
+  button.textContent = liked ? "♡ Like" : "♥ Liked";
+}
+
+function openWebsite() {
+  let url = document.getElementById("browser-url").value.trim();
+  if (!url) return;
+  if (!/^https?:\/\//i.test(url)) url = "https://" + url;
+  openExternal(url);
+}
+
+function openExternal(url) {
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function saveNotes() {
+  const area = document.getElementById("notes-text");
+  localStorage.setItem("ailyNotes", area.value);
+  document.getElementById("notes-status").textContent = "Catatan tersimpan ♡";
+}
+
+function clearNotes() {
+  localStorage.removeItem("ailyNotes");
+  document.getElementById("notes-text").value = "";
+  document.getElementById("notes-status").textContent = "Catatan dihapus.";
+}
+
+function toggleDarkMode(checkbox) {
+  document.getElementById("screen").style.filter = checkbox.checked ? "brightness(.72) saturate(.8)" : "";
+}
+
+function updateClockApp() {
+  const el = document.getElementById("clock-now");
+  if (el) {
+    el.textContent = new Date().toLocaleTimeString("id-ID", {
+      hour:"2-digit", minute:"2-digit", hour12:false
+    });
+  }
+}
+
+function setDemoAlarm() {
+  const time = document.getElementById("alarm-time").value;
+  document.getElementById("alarm-status").textContent =
+    time ? "Alarm demo diatur untuk " + time + ". Tidak ada bunyi otomatis." : "Pilih waktu alarm dulu ya.";
+}
+
+async function startCamera() {
+  const box = document.getElementById("camera-box");
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    box.textContent = "Browser ini tidak mendukung akses kamera.";
+    return;
+  }
+  try {
+    stopCamera();
+    cameraStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:"user"},audio:false});
+    box.innerHTML = "";
+    const video = document.createElement("video");
+    video.autoplay = true;
+    video.playsInline = true;
+    video.srcObject = cameraStream;
+    box.appendChild(video);
+  } catch (error) {
+    box.textContent = "Kamera tidak bisa dibuka. Periksa izin kamera browser ya.";
+  }
+}
+
+document.addEventListener("keydown", event => {
+  if (/^\d$/.test(event.key) && document.getElementById("pin-page").classList.contains("active")) {
+    addPin(event.key);
+  }
+  if (event.key === "Backspace" && document.getElementById("pin-page").classList.contains("active")) {
+    clearPin();
+  }
+});
+
+setInterval(updateClockApp, 1000);
 </script>
 </body>
 </html>
