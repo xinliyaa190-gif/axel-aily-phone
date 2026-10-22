@@ -471,6 +471,23 @@ document.addEventListener("keydown", event => {
 });
 
 setInterval(updateClockApp, 1000);
+   
+let swipeStartY = 0;
+
+const lockScreen = document.getElementById("lock-page");
+
+lockScreen.addEventListener("touchstart", function(event) {
+  swipeStartY = event.touches[0].clientY;
+}, { passive: true });
+
+lockScreen.addEventListener("touchend", function(event) {
+  const swipeEndY = event.changedTouches[0].clientY;
+  const swipeDistance = swipeStartY - swipeEndY;
+
+  if (swipeDistance > 50) {
+    showPage("pin-page");
+  }
+}, { passive: true });
 </script>
 </body>
 </html>
